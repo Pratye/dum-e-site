@@ -1,0 +1,18 @@
+<svg width="188" height="44" viewBox="0 0 188 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon mark: hexagonal D with circuit detail -->
+  <path d="M4 8 L8 4 L20 4 L24 8 L24 20 L20 24 L8 24 L4 20 Z" stroke="#4B9EFF" stroke-width="1.4" fill="none"/>
+  <!-- Inner D letterform -->
+  <path d="M10 9 L10 19 L16 19 C19.3 19 21 17.2 21 14 C21 10.8 19.3 9 16 9 Z" fill="#4B9EFF"/>
+  <!-- Circuit dots at corners -->
+  <circle cx="4" cy="8" r="1.2" fill="#22D8F0"/>
+  <circle cx="24" cy="8" r="1.2" fill="#22D8F0"/>
+  <circle cx="24" cy="20" r="1.2" fill="#22D8F0"/>
+  <circle cx="4" cy="20" r="1.2" fill="#22D8F0"/>
+  <!-- Connector lines extending right -->
+  <line x1="25" y1="14" x2="30" y2="14" stroke="#4B9EFF" stroke-width="1" opacity="0.5"/>
+
+  <!-- DUM-E wordmark -->
+  <text x="34" y="18" fill="#F2F4FF" font-family="Orbitron, 'Courier New', monospace" font-size="15" font-weight="700" letter-spacing="0.08em">DUM-E</text>
+  <!-- ROBOTICS subtitle -->
+  <text x="34" y="30" fill="#5A7EA8" font-family="Manrope, Arial, sans-serif" font-size="8.5" font-weight="500" letter-spacing="0.28em">ROBOTICS</text>
+</svg>
