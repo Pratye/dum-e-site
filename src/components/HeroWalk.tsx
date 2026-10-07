@@ -3,7 +3,8 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react";
+import { useReduce } from "@/components/motion";
 import type { WalkData } from "./WalkCanvas";
 import { SimTag } from "./ui";
 
@@ -17,7 +18,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
  * together. With reduced motion the section is not pinned and the robot holds one mid-stride frame.
  */
 export default function HeroWalk() {
-  const reduce = useReducedMotion();
+  const reduce = useReduce();
   const section = useRef<HTMLElement>(null);
   const frame = useRef(0);
   const [data, setData] = useState<WalkData | null>(null);

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { motion, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { motion, useSpring, useTransform } from "motion/react";
+import { useReduce } from "@/components/motion";
 
 // Deck exhibit 2: payback = robot price / one worker's annual wage (₹18,000 a month).
 const WAGE_YEAR = 18_000 * 12;
@@ -18,7 +19,7 @@ const years = (l: number) => (l * 1e5) / WAGE_YEAR;
 
 export default function PaybackSlider() {
   const id = useId();
-  const reduce = useReducedMotion();
+  const reduce = useReduce();
   const [lakh, setLakh] = useState(50);
   const y = years(lakh);
   const spring = useSpring(y, reduce ? { duration: 0 } : { stiffness: 120, damping: 22 });
