@@ -42,6 +42,10 @@ export async function POST(request: Request) {
     // plain text only: nothing a visitor types is ever rendered as HTML
     body: JSON.stringify({ from: FROM, to: [TO], reply_to: email, subject, text: `${lines.join("\n")}\n\nSent from the Dum-E website.` }),
   });
-  if (!res.ok) return Response.json({ ok: false, code: "send_failed" }, { status: 502 });
+  if (!res.ok) {
+    // Resend explains every refusal (unverified domain, restricted key, bad sender); keep it in the function log
+    console.error("interest: resend refused", res.status, await res.text());
+    return Response.json({ ok: false, code: "send_failed" }, { status: 502 });
+  }
   return Response.json({ ok: true });
 }
