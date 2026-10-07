@@ -1,0 +1,70 @@
+{
+ "policy": "humanoid/sim/runs/dume_v3/walk_mjx/run_20260912_2022_resumed/policy_37847040.pkl",
+ "rollouts_per_scenario": 16,
+ "generated": "2026-10-07",
+ "scenarios": [
+  {
+   "id": "flat",
+   "label": "flat",
+   "survived_s": 20.0,
+   "episode_s": 20.0,
+   "distance_m": 11.86,
+   "vx": 0.61,
+   "cmd": 0.6
+  },
+  {
+   "id": "ramp_4_deg",
+   "label": "ramp 4 deg",
+   "survived_s": 19.0,
+   "episode_s": 20.0,
+   "distance_m": 11.42,
+   "vx": 0.61,
+   "cmd": 0.6
+  },
+  {
+   "id": "ramp_8_deg",
+   "label": "ramp 8 deg",
+   "survived_s": 15.9,
+   "episode_s": 20.0,
+   "distance_m": 8.81,
+   "vx": 0.59,
+   "cmd": 0.6
+  },
+  {
+   "id": "ramp_14_deg",
+   "label": "ramp 14 deg",
+   "survived_s": 7.2,
+   "episode_s": 20.0,
+   "distance_m": 1.67,
+   "vx": 0.29,
+   "cmd": 0.6
+  },
+  {
+   "id": "stairs_4_cm",
+   "label": "stairs 4 cm",
+   "survived_s": 6.3,
+   "episode_s": 20.0,
+   "distance_m": 2.7,
+   "vx": 0.45,
+   "cmd": 0.6
+  },
+  {
+   "id": "stairs_8_cm",
+   "label": "stairs 8 cm",
+   "survived_s": 3.0,
+   "episode_s": 20.0,
+   "distance_m": 1.74,
+   "vx": 0.59,
+   "cmd": 0.6
+  },
+  {
+   "id": "stairs_12_cm",
+   "label": "stairs 12 cm",
+   "survived_s": 3.0,
+   "episode_s": 20.0,
+   "distance_m": 1.74,
+   "vx": 0.59,
+   "cmd": 0.6
+  }
+ ]
+}

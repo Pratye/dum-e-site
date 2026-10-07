@@ -1,0 +1,29 @@
+{
+ "policy": "humanoid/sim/runs/dume_v3/walk_mjx/run_20260912_2022_resumed/policy_37847040.pkl",
+ "clips": {
+  "flat": {
+   "kind": "flat",
+   "grade_deg": 0,
+   "seconds": 12.0,
+   "fell": false,
+   "distance_m": 7.19,
+   "mb": 0.8
+  },
+  "ramp4": {
+   "kind": "ramp",
+   "grade_deg": 4,
+   "seconds": 12.0,
+   "fell": false,
+   "distance_m": 7.01,
+   "mb": 0.71
+  },
+  "ramp8": {
+   "kind": "ramp",
+   "grade_deg": 8,
+   "seconds": 14.0,
+   "fell": false,
+   "distance_m": 7.9,
+   "mb": 0.8
+  }
+ }
+}

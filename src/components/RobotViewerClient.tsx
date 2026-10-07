@@ -12,7 +12,7 @@ const RobotViewer = dynamic(() => import("./RobotViewer"), {
       <div className="loader-ring" />
       <p
         className="text-[0.72rem] uppercase tracking-[0.18em]"
-        style={{ color: "rgba(75,158,255,0.6)" }}
+        style={{ color: "rgba(255,102,0,0.6)" }}
       >
         Loading prototype…
       </p>
@@ -20,6 +20,6 @@ const RobotViewer = dynamic(() => import("./RobotViewer"), {
   ),
 });
 
-export default function RobotViewerClient() {
-  return <RobotViewer />;
+export default function RobotViewerClient({ src }: { src?: string }) {
+  return <RobotViewer src={src} />;
 }

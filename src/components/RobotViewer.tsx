@@ -8,26 +8,33 @@ import * as THREE from "three";
 
 const DRACO = "https://www.gstatic.com/draco/versioned/decoders/1.5.6/";
 
+// Parts that carry the electronics or the parallel-ankle linkage are drawn in the brand orange, so the
+// structure reads as white metal and the engineering reads as the accent.
+const ACCENT = /battery|compute|ankle_(cranks|rods|cross)/i;
+
 function RobotModel({
+  src,
   orbitRef,
 }: {
+  src: string;
   orbitRef: React.RefObject<OrbitControlsImpl | null>;
 }) {
-  const { scene } = useGLTF("/robot.glb", DRACO);
+  const { scene } = useGLTF(src, DRACO);
   const spinRef  = useRef<THREE.Group>(null);
   const outerRef = useRef<THREE.Group>(null);
 
-  // Apply white metallic material to every mesh in the model
+  // White metallic for structure, orange for the electronics and ankle linkage
   useEffect(() => {
     scene.traverse((child) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
+        const accent = ACCENT.test(mesh.name) || ACCENT.test(mesh.parent?.name ?? "");
         mesh.material = new THREE.MeshStandardMaterial({
-          color: "#f5f0e8",
-          emissive: "#2a1000",
-          emissiveIntensity: 0.1,
-          roughness: 0.26,
-          metalness: 0.74,
+          color: accent ? "#ff6600" : "#f5f0e8",
+          emissive: accent ? "#ff3300" : "#2a1000",
+          emissiveIntensity: accent ? 0.18 : 0.1,
+          roughness: accent ? 0.38 : 0.26,
+          metalness: accent ? 0.45 : 0.74,
         });
         mesh.castShadow = true;
       }
@@ -68,7 +75,7 @@ function RobotModel({
     const halfFov = (36 * Math.PI) / 180 / 2;     // matches canvas fov=36
     const dist    = (halfH / Math.tan(halfFov)) * 1.55;
     orbit.object.position.set(0, 0, dist * 0.9);
-    orbit.target.set(0, size.y * 0.50, 0);
+    orbit.target.set(0, 0, 0);                      // the group was centred on the origin above, so look at the middle of it
     orbit.minDistance = dist * 0.4;
     orbit.maxDistance = dist * 3;
     orbit.update();
@@ -80,8 +87,8 @@ function RobotModel({
   });
 
   return (
-    // CAD Z-up → Three.js Y-up correction
-    <group ref={outerRef} rotation={[Math.PI / 2, 0, 0]}>
+    // CAD Z-up → Three.js Y-up: rotate -90° about X, which sends +Z (up) to +Y. (+90° would stand the robot on its head.)
+    <group ref={outerRef} rotation={[-Math.PI / 2, 0, 0]}>
       {/* spinRef holds scale + rotation around vertical axis */}
       <group ref={spinRef}>
         <primitive object={scene} />
@@ -89,8 +96,6 @@ function RobotModel({
     </group>
   );
 }
-
-useGLTF.preload("/robot.glb", DRACO);
 
 function Loader() {
   return (
@@ -106,7 +111,7 @@ function Loader() {
   );
 }
 
-export default function RobotViewer() {
+export default function RobotViewer({ src = "/models/dume_v3.glb" }: { src?: string }) {
   const orbitRef = useRef<OrbitControlsImpl>(null);
 
   return (
@@ -126,7 +131,7 @@ export default function RobotViewer() {
 
           <Environment preset="warehouse" />
 
-          <RobotModel orbitRef={orbitRef} />
+          <RobotModel src={src} orbitRef={orbitRef} />
 
           <OrbitControls
             ref={orbitRef}

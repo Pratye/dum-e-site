@@ -16,7 +16,12 @@ const displayFont = Orbitron({
 export const metadata: Metadata = {
   title: "Dum-E Robotics | Affordable Humanoid Robotics",
   description:
-    "Dum-E Robotics is building affordable humanoid robots for households and industry through hardware sales and Robotics-as-a-Service.",
+    "Dum-E Robotics is building affordable humanoid robots for India's 60M+ SMEs, sold outright or as Robotics-as-a-Service.",
+  openGraph: {
+    title: "Dum-E Robotics | The Maruti of Robots",
+    description: "Affordable humanoid robots for India's 60M+ labour-intensive SMEs. See the design, the simulation and the arm we are building now.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
