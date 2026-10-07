@@ -11,10 +11,10 @@ const RobotViewer = dynamic(() => import("./RobotViewer"), {
     >
       <div className="loader-ring" />
       <p
-        className="text-[0.72rem] uppercase tracking-[0.18em]"
-        style={{ color: "rgba(255,102,0,0.6)" }}
+        className="text-[13px]"
+        style={{ color: "var(--color-mist)" }}
       >
-        Loading prototype…
+        Loading the model…
       </p>
     </div>
   ),

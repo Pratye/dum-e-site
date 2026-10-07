@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useSyncExternalStore } from "react";
 
-const ORANGE = "#FF6600";
+const ACCENT = "var(--color-z)";
 const QUERY = "(prefers-reduced-motion: reduce)";
 
 // An external system (the OS setting), so read it with useSyncExternalStore rather than copying it into state.
@@ -37,7 +37,7 @@ export default function LazyVideo({
   }, [reduced]);
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: aspect, background: "#101010", border: "1px solid rgba(255,102,0,0.15)" }}>
+    <div className="relative w-full overflow-hidden rounded-2xl" style={{ aspectRatio: aspect, background: "#0d1a3a", border: "1px solid var(--color-night-line)" }}>
       <video
         ref={ref}
         src={src}
@@ -53,10 +53,10 @@ export default function LazyVideo({
       />
       {tag && (
         <span
-          className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.14em]"
-          style={{ background: "rgba(13,13,13,0.72)", color: "#FAFAF8", border: "1px solid rgba(250,250,248,0.28)" }}
+          className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[12px] font-medium"
+          style={{ background: "rgba(10,21,48,0.72)", color: "var(--color-mist)", border: "1px solid var(--color-night-line)" }}
         >
-          <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: ORANGE }} />
+          <span className="inline-block h-1.5 w-1.5 rounded-full" style={{ background: ACCENT }} />
           {tag}
         </span>
       )}

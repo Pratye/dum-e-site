@@ -1,9 +1,9 @@
 import curve from "@/data/training_curve.json";
 
-const ORANGE = "#FF6600";
-const FG = "#FAFAF8";
-const MUTED = "#8A8A8A";
-const GRID = "rgba(255,102,0,0.13)";
+const ORANGE = "#4C7DFF";            // terrain stage, brand Z blue
+const FG = "#EEF1EC";
+const MUTED = "#8A96AD";
+const GRID = "rgba(176,196,255,0.12)";
 
 type Segment = { label: string; stage: string; start_M: number; points: number[][] };
 
@@ -29,7 +29,7 @@ export default function TrainingChart() {
         aria-label={`Mean time upright during evaluation rises from under one second to about eighteen seconds on flat ground over ${curve.terrain_starts_M} million training steps, then settles near fourteen seconds on the harder terrain mix.`}
         className="w-full h-auto"
       >
-        <rect x={split} y={T} width={W - R - split} height={H - T - B} fill="rgba(255,102,0,0.05)" />
+        <rect x={split} y={T} width={W - R - split} height={H - T - B} fill="rgba(76,125,255,0.07)" />
         {[0, 5, 10, 15, 20].map((v) => (
           <g key={v}>
             <line x1={L} x2={W - R} y1={y(v)} y2={y(v)} stroke={GRID} />
@@ -43,8 +43,8 @@ export default function TrainingChart() {
           </g>
         ))}
         <line x1={split} x2={split} y1={T} y2={H - B} stroke={ORANGE} strokeOpacity="0.55" strokeDasharray="5 4" />
-        <text x={L + 10} y={T + 20} fontSize="15" fill={FG} letterSpacing="1.6">FLAT GROUND</text>
-        <text x={split + 10} y={T + 20} fontSize="15" fill={ORANGE} letterSpacing="1.6">TERRAIN</text>
+        <text x={L + 10} y={T + 20} fontSize="15" fill={FG} >Flat ground</text>
+        <text x={split + 10} y={T + 20} fontSize="15" fill={ORANGE} >Terrain: stairs and ramps</text>
         <path d={path(stages[0])} fill="none" stroke={FG} strokeWidth="3" strokeLinejoin="round" />
         <path d={path(stages[1])} fill="none" stroke={ORANGE} strokeWidth="3" strokeLinejoin="round" />
         {stages.flatMap((pts, k) => pts.map((p, i) => (

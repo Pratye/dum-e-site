@@ -30,8 +30,8 @@ function RobotModel({
         const mesh = child as THREE.Mesh;
         const accent = ACCENT.test(mesh.name) || ACCENT.test(mesh.parent?.name ?? "");
         mesh.material = new THREE.MeshStandardMaterial({
-          color: accent ? "#ff6600" : "#f5f0e8",
-          emissive: accent ? "#ff3300" : "#2a1000",
+          color: accent ? "#4C7DFF" : "#E4E8F0",
+          emissive: accent ? "#1d3fa8" : "#0a1530",
           emissiveIntensity: accent ? 0.18 : 0.1,
           roughness: accent ? 0.38 : 0.26,
           metalness: accent ? 0.45 : 0.74,
@@ -102,10 +102,10 @@ function Loader() {
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
       <div className="loader-ring" />
       <p
-        className="text-[0.72rem] uppercase tracking-[0.18em]"
-        style={{ color: "rgba(255,102,0,0.6)" }}
+        className="text-[13px]"
+        style={{ color: "var(--color-mist)" }}
       >
-        Loading prototype…
+        Loading the model…
       </p>
     </div>
   );
@@ -125,7 +125,7 @@ export default function RobotViewer({ src = "/models/dume_v3.glb" }: { src?: str
         >
           <directionalLight position={[100, 160, 120]} intensity={2.2} color="#fff8f0" castShadow />
           <directionalLight position={[-80, 40, 60]}   intensity={0.7} color="#ffe8d6" />
-          <pointLight position={[0, 80, -150]}  intensity={1.6} color="#ff6600" />
+          <pointLight position={[0, 80, -150]}  intensity={1.4} color="#4C7DFF" />
           <pointLight position={[0, -80, 60]}   intensity={0.3} color="#ffddaa" />
           <ambientLight intensity={0.4} />
 
@@ -149,10 +149,10 @@ export default function RobotViewer({ src = "/models/dume_v3.glb" }: { src?: str
       </Suspense>
 
       <p
-        className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none text-[0.62rem] uppercase tracking-[0.16em] whitespace-nowrap"
-        style={{ color: "rgba(255,102,0,0.4)" }}
+        className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none text-[13px] whitespace-nowrap"
+        style={{ color: "var(--color-fog)" }}
       >
-        Left drag to rotate · Right drag to pan · Scroll to zoom
+        Drag to rotate, scroll to zoom
       </p>
     </div>
   );
